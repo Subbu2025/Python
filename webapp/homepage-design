@@ -1,0 +1,255 @@
+Designing a home page for your website www.sangamsoftsol.com involves several steps, including setting up your Python web application, configuring Nginx on Ubuntu, and deploying on AWS. Below is a detailed guide to help you accomplish this.
+
+Step 1: Set Up Your Python Web Application
+1.1 Install Necessary Tools
+Ensure you have Python and virtual environment set up on your local machine.
+-------------------------------------------------------------------------------------------
+ # Update package list and install Python3, pip3, and virtualenv
+sudo apt update
+sudo apt install python3 python3-pip python3-venv
+
+# Set up your project directory
+mkdir sangamsoftsol
+cd sangamsoftsol
+
+# Create a virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install Flask (or Django if preferred)
+pip install Flask
+--------------------------------------------------------------------------------------
+  1.2 Create Flask Application
+Create your Flask application with an index.html template for the home page.
+--------------------------------------------------------------------------------------
+  Project Directory Structure:
+sangamsoftsol/
+├── app.py
+├── templates/
+│   └── index.html
+├── static/
+│   ├── css/
+│   │   └── style.css
+├── venv/
+├── requirements.txt
+└── .gitignore
+-----------------------------------------------------------------------------------------
+  app.py:
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+------------------------------------------------------------------------------------------
+   templates/index.html:
+---------------------------------------------------------------------------------------------
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Sangam Soft Solutions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Sangam Soft Solutions</h1>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/services">Services</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Our Mission</h2>
+            <p>At Sangam Soft Solutions, we strive to provide the best software solutions to our clients.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Sangam Soft Solutions. All rights reserved.</p>
+    </footer>
+</body>
+</html>
+------------------------------------------------------------------------------------------------
+  static/css/style.css:
+------------------------------------------------------------------------------------------------
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    padding: 2rem;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+--------------------------------------------------------------------------------------------------
+  requirements.txt:
+
+  Flask==2.0.1
+--------------------------------------------------------------------------------------------------
+  .gitignore:
+  
+  venv/
+__pycache__/
+*.pyc
+instance/
+.webassets-cache
+
+--------------------------------------------------------------------------------------------------
+  Step 2: Set Up and Configure Nginx on Ubuntu
+--------------------------------------------------------------------------------------------------
+  2.1 Install Nginx
+sudo apt update
+sudo apt install nginx
+
+2.2 Configure Nginx for Your Flask Application
+Create a new Nginx configuration file for your site.
+  sudo nano /etc/nginx/sites-available/sangamsoftsol
+  
+Nginx Configuration (/etc/nginx/sites-available/sangamsoftsol):
+server {
+    listen 80;
+    server_name www.sangamsoftsol.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+
+Enable the new configuration by creating a symbolic link to sites-enabled directory.
+  sudo ln -s /etc/nginx/sites-available/sangamsoftsol /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+
+
+Step 3: Deploy on AWS
+3.1 Launch an EC2 Instance
+Log in to your AWS Management Console.
+Launch an EC2 instance (Amazon Linux 2 or Ubuntu).
+Configure security groups to allow HTTP (port 80) and SSH (port 22) access.
+
+3.2 SSH into Your EC2 Instance and Set Up Environment
+ssh -i "your-key-pair.pem" ec2-user@your-ec2-public-dns
+
+3.3 Install Necessary Software on EC2
+# Update packages and install necessary software
+sudo apt update
+sudo apt install python3 python3-venv python3-pip nginx
+
+# Clone your repository or transfer your project files to the EC2 instance
+# For example, using scp (Secure Copy Protocol):
+# scp -i "your-key-pair.pem" -r /path/to/your/project ec2-user@your-ec2-public-dns:/home/ec2-user/sangamsoftsol
+
+# Navigate to your project directory
+cd sangamsoftsol
+
+# Set up virtual environment and install dependencies
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+
+3.4 Install and Configure Gunicorn
+# Install Gunicorn
+pip install gunicorn
+
+# Create a systemd service file for Gunicorn
+sudo nano /etc/systemd/system/sangamsoftsol.service
+
+Gunicorn Service Configuration (/etc/systemd/system/sangamsoftsol.service):
+[Unit]
+Description=Gunicorn instance to serve sangamsoftsol
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/sangamsoftsol
+Environment="PATH=/home/ubuntu/sangamsoftsol/venv/bin"
+ExecStart=/home/ubuntu/sangamsoftsol/venv/bin/gunicorn --workers 3 --bind unix:sangamsoftsol.sock -m 007 app:app
+
+[Install]
+WantedBy=multi-user.target
+
+
+  # Start and enable Gunicorn service
+sudo systemctl start sangamsoftsol
+sudo systemctl enable sangamsoftsol
+
+
+3.5 Configure Nginx to Proxy Pass to Gunicorn
+Modify the Nginx configuration to proxy requests to Gunicorn.
+  sudo nano /etc/nginx/sites-available/sangamsoftsol
+
+  Updated Nginx Configuration:
+server {
+    listen 80;
+    server_name www.sangamsoftsol.com;
+
+    location / {
+        proxy_pass http://unix:/home/ubuntu/sangamsoftsol/sangamsoftsol.sock;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+# Test Nginx configuration and restart
+sudo nginx -t
+sudo systemctl restart nginx
+
+Step 4: Point Your Domain to the EC2 Instance
+Update your domain's DNS settings to point to the public IP address of your EC2 instance.
+
+
+Conclusion
+By following these steps, you should be able to set up and deploy a home page for www.sangamsoftsol.com using Python, Flask, Nginx on Ubuntu, and AWS. This guide provides a foundation that you can build upon with additional features and pages as required.
