@@ -34,6 +34,7 @@ def main():  # Wrapper function
         'What kind of operation would you like to do?\
         \nChoose between "+, -, *, /" : ')
     print("Hello World")
+    print("Hello World---New World")
     print(calc(a, b, op))
 
 if __name__ == '__main__':
