@@ -1,3 +1,3 @@
-'print("Hello, World!")' | Out-File -FilePath script.py
+print("Hello, World!")
 
 print("This is Python program created using powershell")
