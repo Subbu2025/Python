@@ -1,4 +1,5 @@
-Goal of the Script
+Goal of the Script:
+-------------------
 The goal of this script is to retrieve and display information about all EC2 instances in a specific AWS region. 
 This includes each instance's ID, type, state, and launch time. 
 The script is designed to handle cases where no instances are found or where there are issues with AWS credentials, providing feedback to the user in each case.
