@@ -1,0 +1,88 @@
+Goal of the Script
+The goal of this script is to retrieve and display information about all EC2 instances in a specific AWS region. 
+This includes each instance's ID, type, state, and launch time. 
+The script is designed to handle cases where no instances are found or where there are issues with AWS credentials, providing feedback to the user in each case.
+=======================================================================================================
+Requirements to Run the Script:
+AWS CLI Configuration: You need to have AWS CLI installed and configured with valid AWS credentials using aws configure.
+Boto3 Library: Make sure Boto3 is installed (pip install boto3) to interact with AWS services.
+Python Environment: A Python environment to run the script, such as PyCharm, or a terminal with Python installed.
+Permissions: Ensure the AWS credentials have permission to use ec2:DescribeInstances to list EC2 instances.
+=======================================================================================================
+Here’s the flow presented in a straightforward, step-by-step format:
+=> Start Script
+=> Import Libraries
+=> Define AWS Region
+=> Initialize AWS Session
+=> Initialize EC2 Client
+=> Describe EC2 Instances
+=> Check if Instances Exist
+=> If Instances Exist, Print Details
+=> Handle Any Exceptions
+=> End Scrip
+=======================================================================================================
+A basic flowchart template and a description for the flow of the script you've written.
+
++-----------------------------+
+|         Start Script        |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Import Libraries           |
+|  (boto3, botocore.exceptions)|
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Define Region ('us-east-1')|
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Initialize Session         |
+|  with AWS Credentials       |
++-----------------------------+
+            |
+            v
++-----------------------------+
+| Initialize EC2 Client       |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Function: list_ec2_instances|
+|  - Attempt to Describe      |
+|    Instances                |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Check if Instances Exist   |
+|  - If no instances found,   |
+|    print "No instances..."  |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  If Instances Found:        |
+|  - Loop through reservations|
+|  - For each instance:       |
+|     - Print Instance ID     |
+|     - Print Instance Type   |
+|     - Print State           |
+|     - Print Launch Time     |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|  Exception Handling         |
+|  - NoCredentialsError       |
+|  - PartialCredentialsError  |
+|  - Generic Exception        |
++-----------------------------+
+            |
+            v
++-----------------------------+
+|         End Script          |
++-----------------------------+
