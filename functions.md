@@ -10,9 +10,9 @@
     numbers = [1, 2, 3]
     print(len(numbers))  # Output: 3
     ```
-  #### Internal Flow of Function Execution in Python: The `print()` Function
+  ### Internal Flow of Function Execution in Python: The `print()` Function
   
-  ##### Complete Flow Diagram of print("Hello, World!"):
+  #### Complete Flow Diagram of print("Hello, World!"):
   
   **1. Function Call:** Python encounters print("Hello, World!").
   
@@ -20,13 +20,13 @@
   
   **3. Argument Preparation:**
   
-      - Python evaluates "Hello, World!".
+    - Python evaluates "Hello, World!".
       
   **4. Execution:**
   
-      - The interpreter transitions to the C implementation of print().
+    - The interpreter transitions to the C implementation of print().
       
-      - The string "Hello, World!" is sent to the default output stream (sys.stdout).
+    - The string "Hello, World!" is sent to the default output stream (sys.stdout).
       
   **5. Cleanup:** The output buffer is flushed to ensure the string is displayed immediately.
   
