@@ -32,6 +32,10 @@ print(len(numbers))  # Output: 3
   
   **6. Return:** The function completes and returns None.
   
-   #### Complete Flow Diagram of print("Hello, World!"):
+  
+   ### Complete Flow Diagram of print("Hello, World!"):
+   
    ![python-print-flow-example](./images/python-print-flow.png)
+
+   ---
 
