@@ -13,10 +13,8 @@ numbers = [1, 2, 3]
 print(len(numbers))  # Output: 3
 ```
 ---
-  ### Internal Flow of Function Execution in Python: The `print()` Function
-  
-  #### Complete Flow Diagram of print("Hello, World!"):
-  
+  ### Internal Flow of Function Execution in Python for the `print()` Function:
+
   **1. Function Call:** Python encounters print("Hello, World!").
   
   **2. Lookup:** Python identifies print as a built-in function.
@@ -34,6 +32,6 @@ print(len(numbers))  # Output: 3
   
   **6. Return:** The function completes and returns None.
   
-      
+   #### Complete Flow Diagram of print("Hello, World!"):
    ![python-print-flow-example](./images/python-print-flow.png)
 
