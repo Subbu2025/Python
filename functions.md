@@ -39,7 +39,7 @@ import math
 print(math.sqrt(16))  # Output: 4.0
 ```
 ---
-  ### Internal Flow of Function Execution in Python for the `print()` Function:
+### Internal Flow of Function Execution in Python for the `print()` Function:
 
   **1. Function Call:** Python encounters print("Hello, World!").
   
@@ -59,9 +59,44 @@ print(math.sqrt(16))  # Output: 4.0
   **6. Return:** The function completes and returns None.
   
   
-   ### Complete Flow Diagram of print("Hello, World!"):
+### Complete Flow Diagram of print("Hello, World!"):
+   
    
    ![python-print-flow-example](./images/python-print-flow.png)
 
    ---
+### Optional Arguments in print()
+**1. sep (Separator):**
+**Syntax:**
+```python
+print(*objects, sep='separator')
+```
+**Example:**
+```python
+print("Hello", "World", sep="-")
+# Output: Hello-World
+```
+**2. end (End Character):**
+**Syntax:**
+```python
+print(*objects, end='end_character')
+```
+**Example:**
+```python
+print("Hello", end="!!!")
+print("World")
+# Output: Hello!!!World
+```
+**3. file (Output Stream):**
+**Syntax:**
+```python
+print(*objects, file=stream)
+```
+**Example:**
+```python
+with open("output.txt", "w") as f:
+    print("Hello, File!", file=f)
+# The text "Hello, File!" is written to `output.txt`.
+```
+
 
