@@ -6,11 +6,12 @@
   - **print():** Displays output to the console.
   - **len():** Returns the length of a string, list, etc.
   - **sum():** Adds all elements in an iterable.
-    **Example:**
-    ```python
-    numbers = [1, 2, 3]
-    print(len(numbers))  # Output: 3
-    ```
+    
+**Example:**
+```python
+numbers = [1, 2, 3]
+print(len(numbers))  # Output: 3
+```
 ---
   ### Internal Flow of Function Execution in Python: The `print()` Function
   
