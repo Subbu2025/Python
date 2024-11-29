@@ -11,6 +11,7 @@
     numbers = [1, 2, 3]
     print(len(numbers))  # Output: 3
     ```
+    ---
   ### Internal Flow of Function Execution in Python: The `print()` Function
   
   #### Complete Flow Diagram of print("Hello, World!"):
