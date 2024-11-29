@@ -2,38 +2,42 @@
   ### Functions in Python are blocks of reusable code designed to perform a specific task. 
   #### Types of Functions:
 **1. Built-in Functions:** These are pre-defined functions that come with Python.
+
 **Examples:**
   - **print():** Displays output to the console.
   - **len():** Returns the length of a string, list, etc.
   - **sum():** Adds all elements in an iterable.
+
 **Example:**
 ```python
 numbers = [1, 2, 3]
 print(len(numbers))  # Output: 3
 ```
+
 **2. User-defined Functions:** These are functions that you create yourself to perform specific tasks.
-  **Syntax:**
+
+**Syntax:**
+
 ```python
 def function_name(parameters):
     # code block
     return result
 ```
+
 **Example:**
+
 ```python
 def greet(name):
     return f"Hello, {name}!"
 print(greet("Subbu"))  # Output: Hello, Subbu!
 ```
 **3. Functions from Modules:** Python allows you to import functions from external modules or libraries. 
+
 **Example:**
 ```python
 import math
 print(math.sqrt(16))  # Output: 4.0
 ```
-
-
-    
-
 ---
   ### Internal Flow of Function Execution in Python for the `print()` Function:
 
