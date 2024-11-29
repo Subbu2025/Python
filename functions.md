@@ -6,5 +6,10 @@
   - **print():** Displays output to the console.
   - **len():** Returns the length of a string, list, etc.
   - **sum():** Adds all elements in an iterable.
+    ```python
+    numbers = [1, 2, 3]
+    print(len(numbers))  # Output: 3
+    ```
+
 
 
