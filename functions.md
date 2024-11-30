@@ -126,6 +126,7 @@ with open("output.txt", "w") as f:
 
 ### Key Concepts of Functions:
 **1. Function Definition:** Use the **def** keyword to define a function.
+
 **Example:**
 ```python
 def add_numbers(a, b):
@@ -134,25 +135,37 @@ def add_numbers(a, b):
 **2. Function Parameters and Arguments:** 
 - **Parameters:** Placeholders in the function definition.
 - **Arguments:** Actual values passed when calling the function.
+
 **Example:**
 ```python
 def greet(name):  # 'name' is the parameter
     return f"Hello, {name}!"
 
 greet("Bob")  # 'Bob' is the argument
-``` 
+```
+
 **3. Return Statement:** Use **return** to send a result back to the caller. If return is not used, the function returns **None**.
+**Example:**
+```python
+def square(x):
+    return x ** 2
+
+print(square(4))  # Output: 16
+```
 **4. Default Parameters:** Functions can have default values for parameters.
+
 **Example:**
 ```python
 def greet(name="Guest"):
     return f"Hello, {name}!"
+
 print(greet())          # Output: Hello, Guest!
 print(greet("Alice"))   # Output: Hello, Alice!
 ```
 **5. Variable-Length Arguments:** 
 - Use ***args** to accept multiple positional arguments.
 - Use ****kwargs** to accept multiple keyword arguments.
+  
 **Example:** 
 ```python
 def add(*numbers):
