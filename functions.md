@@ -169,6 +169,8 @@ def greet(name="World"):
 print(greet())          # Output: Hello, World!
 print(greet("Subbu"))   # Output: Hello, Subbu!
 ```
+![python-4-example](./images/python-4.jpg)
+
 **5. Variable-Length Arguments:** 
 - Use ***args** to accept multiple positional arguments.
 - Use ****kwargs** to accept multiple keyword arguments.
