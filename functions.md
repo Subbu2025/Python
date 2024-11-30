@@ -141,7 +141,7 @@ def add_numbers(a, b):
 def greet(name):  # 'name' is the parameter
     return f"Hello, {name}!"
 
-greet("Bob")  # 'Bob' is the argument
+greet("Subbu")  # 'Subbu' is the argument
 ```
 
 **3. Return Statement:** Use **return** to send a result back to the caller. If return is not used, the function returns **None**.
@@ -160,7 +160,7 @@ def greet(name="Guest"):
     return f"Hello, {name}!"
 
 print(greet())          # Output: Hello, Guest!
-print(greet("Alice"))   # Output: Hello, Alice!
+print(greet("World"))   # Output: Hello, World!
 ```
 **5. Variable-Length Arguments:** 
 - Use ***args** to accept multiple positional arguments.
