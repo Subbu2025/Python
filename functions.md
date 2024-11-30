@@ -116,12 +116,53 @@ with open("output.txt", "w") as f:
 
 ### How Functions Work (Step-by-Step):
 
-**Define:** The function is created with the def keyword.
+**Define:** The function is created with the **def** keyword.
 
 **Call:** The function is executed by calling it with its name and providing any necessary arguments.
 
 **Process:** The code block inside the function runs.
 
-**Return:** If there is a return statement, the function sends back a value. If not, it returns None.
+**Return:** If there is a **return** statement, the function sends back a value. If not, it returns **None**.
 
+### Key Concepts of Functions:
+**1. Function Definition:** Use the **def** keyword to define a function.
+**Example:**
+```python
+def add_numbers(a, b):
+    return a + b
+``` 
+**2. Function Parameters and Arguments:** 
+- **Parameters:** Placeholders in the function definition.
+- **Arguments:** Actual values passed when calling the function.
+**Example:**
+```python
+def greet(name):  # 'name' is the parameter
+    return f"Hello, {name}!"
 
+greet("Bob")  # 'Bob' is the argument
+``` 
+**3. Return Statement:** Use **return** to send a result back to the caller. If return is not used, the function returns **None**.
+**4. Default Parameters:** Functions can have default values for parameters.
+**Example:**
+```python
+def greet(name="Guest"):
+    return f"Hello, {name}!"
+print(greet())          # Output: Hello, Guest!
+print(greet("Alice"))   # Output: Hello, Alice!
+```
+**5. Variable-Length Arguments:** 
+- Use ***args** to accept multiple positional arguments.
+- Use ****kwargs** to accept multiple keyword arguments.
+**Example:** 
+```python
+def add(*numbers):
+    return sum(numbers)
+
+print(add(1, 2, 3))  # Output: 6
+
+def print_info(**details):
+    for key, value in details.items():
+        print(f"{key}: {value}")
+
+print_info(name="Alice", age=25)
+```
