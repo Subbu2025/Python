@@ -57,7 +57,7 @@ print(math.sqrt(16))  # Output: 4.0
   **5. Cleanup:** The output buffer is flushed to ensure the string is displayed immediately.
   
   **6. Return:** The function completes and returns None.
-  
+--  
   
 ### Complete Flow Diagram of print("Hello, World!"):
    
