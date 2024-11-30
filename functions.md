@@ -108,11 +108,20 @@ with open("output.txt", "w") as f:
 - as: Assigns the file object returned by open() to the variable (f).
 
 - f: File object -> Used to interact with the file (e.g., write to it).
-- 
+  
 **What Happens with the above code:**
 1. The file output.txt is opened (created or overwritten if it already exists).
 2. The text "Hello, File!" is written to the file.
 3. The file is closed automatically.
 
+### How Functions Work (Step-by-Step):
+
+**Define:** The function is created with the def keyword.
+
+**Call:** The function is executed by calling it with its name and providing any necessary arguments.
+
+**Process:** The code block inside the function runs.
+
+**Return:** If there is a return statement, the function sends back a value. If not, it returns None.
 
 
