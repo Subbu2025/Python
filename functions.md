@@ -117,6 +117,8 @@ with open("output.txt", "w") as f:
 2. The text "Hello, File!" is written to the file.
 3. The file is closed automatically.
 
+----
+
 ### How Functions Work (Step-by-Step):
 
 **Define:** The function is created with the **def** keyword.
@@ -126,6 +128,8 @@ with open("output.txt", "w") as f:
 **Process:** The code block inside the function runs.
 
 **Return:** If there is a **return** statement, the function sends back a value. If not, it returns **None**.
+
+---
 
 ### Key Concepts of Functions:
 **1. Function Definition:** Use the **def** keyword to define a function.
