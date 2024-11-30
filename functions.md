@@ -156,11 +156,11 @@ print(square(4))  # Output: 16
 
 **Example:**
 ```python
-def greet(name="Guest"):
+def greet(name="World"):
     return f"Hello, {name}!"
 
-print(greet())          # Output: Hello, Guest!
-print(greet("World"))   # Output: Hello, World!
+print(greet())          # Output: Hello, World!
+print(greet("Subbu"))   # Output: Hello, Subbu!
 ```
 **5. Variable-Length Arguments:** 
 - Use ***args** to accept multiple positional arguments.
