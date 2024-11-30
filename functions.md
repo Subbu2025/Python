@@ -186,4 +186,6 @@ def print_info(**details):
 
 print_info(name="Alice", age=25)
 ```
+![Python-3-example](./images/Python-3.png)
+
 -----
