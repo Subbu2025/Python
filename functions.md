@@ -189,8 +189,11 @@ def print_info(**details):
 print_info(name="Alice", age=25)
 ```
 **f"{key}: {value}":** f-strings (formatted string literals)
+
 **Purpose꞉** Lets users put variables and expressions inside strings for easier formatting.
+
 **Note:** **File f** is useful for various purposes. It is a variable that represents a file object in file operations.
+
 
 ![Python-3-example](./images/Python-3.jpg)
 
