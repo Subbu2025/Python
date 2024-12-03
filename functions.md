@@ -186,8 +186,19 @@ print(greet("Subbu"))   # Output: Hello, Subbu!
 ![python-4-example](./images/python-4.jpg)
 
 **5. Variable-Length Arguments:** 
-- Use ***args** to accept multiple positional arguments.
-- Use ****kwargs** to accept multiple keyword arguments.
+
+1. *args: Non-keyword Variable-length Arguments
+
+- *args allows a function to accept any number of positional arguments.
+
+- Use *args to accept multiple positional arguments.
+
+2. **kwargs: Keyword Variable-length Arguments
+
+- **kwargs allows a function to accept any number of keyword arguments.
+
+- Use **kwargs to accept multiple keyword arguments.
+  
   
 **Example:** 
 ```python
